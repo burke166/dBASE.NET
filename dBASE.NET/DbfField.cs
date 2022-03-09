@@ -26,10 +26,19 @@
         /// </summary>
         public byte Length { get; set; }
 
+        /// <summary>
+        /// Number of decimal places for numeric types.
+        /// </summary>
         public byte Precision { get; set; }
 
+        /// <summary>
+        /// ID for different work areas in database. Typically set to 0.
+        // </summary>
         public byte WorkAreaID { get; set; }
 
+        /// <summary>
+        /// Flags stored as byte.
+        /// </summary>
         public byte Flags { get; set; }
 
         /// <summary>
@@ -37,6 +46,9 @@
         /// </summary>
         internal string DefaultValue => defaultValue ?? (defaultValue = new string(' ', Length));
 
+        /// <summary>
+        /// Created a new DbfField instance from name, type, length, and precision.
+        /// </summary>
         public DbfField(string name, DbfFieldType type, byte length, byte precision = 0)
         {
             this.Name = name;

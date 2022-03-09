@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace dBASE.NET
 {
+	/// <summary>
+	/// Class that represents the header of a Dbf file. Contains number of records and lengths of fields and records.
+	/// </summary>
 	public class Dbf3Header : DbfHeader
 	{
 		internal override void Read(BinaryReader reader)

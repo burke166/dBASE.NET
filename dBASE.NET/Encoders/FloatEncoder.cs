@@ -27,13 +27,17 @@
         /// <inheritdoc />
         public object Decode(byte[] buffer, byte[] memoData, Encoding encoding)
         {
+            float result;
             string text = encoding.GetString(buffer).Trim();
-            if (text.Length == 0)
+
+            if (Single.TryParse(text, out result))
+            {
+                return result;
+            }
+            else
             {
                 return null;
             }
-
-            return Convert.ToSingle(text, CultureInfo.InvariantCulture);
         }
     }
 }

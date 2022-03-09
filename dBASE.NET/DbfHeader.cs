@@ -38,6 +38,9 @@ namespace dBASE.NET
 		/// </summary>
 		public ushort RecordLength { get; set; }
 
+		/// <summary>
+		/// Create a new DBF header based on version.
+		/// </summary>
 		public static DbfHeader CreateHeader(DbfVersion version)
 		{
 			DbfHeader header;
