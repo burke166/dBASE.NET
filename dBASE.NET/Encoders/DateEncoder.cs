@@ -33,9 +33,17 @@
         /// <inheritdoc />
         public object Decode(byte[] buffer, byte[] memoData, Encoding encoding)
         {
+            DateTime result;
             string text = encoding.GetString(buffer).Trim();
-            if (text.Length == 0 || string.IsNullOrWhiteSpace(text)) return null;
-            return DateTime.ParseExact(text, format, CultureInfo.InvariantCulture);
+
+            if (DateTime.TryParseExact(text, format, CultureInfo.InvariantCulture, DateTimeStyles.AssumeLocal, out result))
+            {
+                return result;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
