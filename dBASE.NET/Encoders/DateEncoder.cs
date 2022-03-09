@@ -34,7 +34,7 @@
         public object Decode(byte[] buffer, byte[] memoData, Encoding encoding)
         {
             string text = encoding.GetString(buffer).Trim();
-            if (text.Length == 0) return null;
+            if (text.Length == 0 || string.IsNullOrWhiteSpace(text)) return null;
             return DateTime.ParseExact(text, format, CultureInfo.InvariantCulture);
         }
     }
