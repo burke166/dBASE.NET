@@ -27,7 +27,10 @@
             {
                 string text = encoding.GetString(buffer).Trim();
                 if (text.Length == 0) return null;
-                index = Convert.ToInt32(text);
+                if (!int.TryParse(text, out index))
+                {
+                    return null;
+                }
             }
             else
             {
